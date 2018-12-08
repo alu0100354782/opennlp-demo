@@ -58,6 +58,8 @@ public class Main {
 		}
 		System.out.println("\n-----\ndone");
 		Utils.writeFile("tokens.txt", tokens);
+		
+		scanner.close();
 	}
 
 }

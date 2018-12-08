@@ -13,7 +13,7 @@ import java.io.PrintWriter;
  */
 public abstract class Utils {
 
-	private static String path = System.getProperty("user.home") + "/";
+	private static String path = System.getProperty("user.home") + File.separator;
 
 	/**
 	 * Leer fichero de texto
@@ -33,8 +33,9 @@ public abstract class Utils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				reader.close();
+			try {		
+				if(reader != null)
+					reader.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -60,9 +61,11 @@ public abstract class Utils {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if (null != file)
-					file.close();
+			if(pw != null)
+				pw.close();
+			try {	
+				if(file != null)
+					file.close();				
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}

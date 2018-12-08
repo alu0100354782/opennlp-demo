@@ -62,7 +62,8 @@ public class PartOfSpeechTaggerTrainer
 		{
 			modelOut = new BufferedOutputStream( new FileOutputStream(
 					modelFile ) );
-			model.serialize( modelOut );
+			if (model != null)
+				model.serialize( modelOut );
 		}
 		catch( IOException e )
 		{
