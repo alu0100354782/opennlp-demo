@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.namefind.NameFinderME;
 import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.util.Span;
@@ -54,7 +56,7 @@ public class NameFinderMain
 		}
 		catch( IOException e )
 		{
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -66,6 +68,7 @@ public class NameFinderMain
 				}
 				catch( IOException e )
 				{
+					Log.trace(e.getMessage());
 				}
 			}
 		}

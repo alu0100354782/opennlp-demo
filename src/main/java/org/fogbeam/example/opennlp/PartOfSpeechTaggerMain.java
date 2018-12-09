@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 
@@ -42,7 +44,7 @@ public class PartOfSpeechTaggerMain
 		catch( IOException e )
 		{
 			// Model loading failed, handle the error
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -54,6 +56,7 @@ public class PartOfSpeechTaggerMain
 				}
 				catch( IOException e )
 				{
+					Log.trace(e.getMessage());
 				}
 			}
 		}

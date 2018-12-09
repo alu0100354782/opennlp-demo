@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSSample;
 import opennlp.tools.postag.POSTaggerME;
@@ -37,7 +39,7 @@ public class PartOfSpeechTaggerTrainer
 		catch( IOException e )
 		{
 			// Failed to read or parse training data, training failed
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -52,7 +54,7 @@ public class PartOfSpeechTaggerTrainer
 					// Not an issue, training already finished.
 					// The exception should be logged and investigated
 					// if part of a production system.
-					e.printStackTrace();
+					Log.trace(e.getMessage());
 				}
 			}
 		}
@@ -67,8 +69,8 @@ public class PartOfSpeechTaggerTrainer
 		}
 		catch( IOException e )
 		{
-			// Failed to save model
-			e.printStackTrace();
+			// Failed to save model			
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -82,7 +84,7 @@ public class PartOfSpeechTaggerTrainer
 				{
 					// Failed to correctly save model.
 					// Written model might be invalid.
-					e.printStackTrace();
+					Log.trace(e.getMessage());
 				}
 			}
 						

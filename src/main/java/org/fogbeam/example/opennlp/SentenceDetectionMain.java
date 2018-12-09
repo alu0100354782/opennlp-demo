@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 
@@ -38,7 +40,7 @@ public class SentenceDetectionMain
 		}
 		catch( IOException e )
 		{
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -50,6 +52,7 @@ public class SentenceDetectionMain
 				}
 				catch( IOException e )
 				{
+					Log.trace(e.getMessage());
 				}
 			}
 			
@@ -62,6 +65,7 @@ public class SentenceDetectionMain
 				}
 				catch( IOException e )
 				{
+					Log.trace(e.getMessage());
 				}
 			}
 			

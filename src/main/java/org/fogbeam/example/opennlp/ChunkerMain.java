@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.chunker.ChunkerME;
 import opennlp.tools.chunker.ChunkerModel;
 
@@ -58,7 +60,7 @@ public class ChunkerMain
 		catch( IOException e )
 		{
 			// Model loading failed, handle the error
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -70,6 +72,7 @@ public class ChunkerMain
 				}
 				catch( IOException e )
 				{
+					Log.trace(e.getMessage());
 				}
 			}
 		}

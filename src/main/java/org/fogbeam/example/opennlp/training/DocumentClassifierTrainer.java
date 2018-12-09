@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.doccat.DoccatModel;
 import opennlp.tools.doccat.DocumentCategorizerME;
 import opennlp.tools.doccat.DocumentSample;
@@ -35,7 +37,7 @@ public class DocumentClassifierTrainer
 		catch( IOException e )
 		{
 			// Failed to read or parse training data, training failed
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -50,7 +52,7 @@ public class DocumentClassifierTrainer
 					// Not an issue, training already finished.
 					// The exception should be logged and investigated
 					// if part of a production system.
-					e.printStackTrace();
+					Log.trace(e.getMessage());
 				}
 			}
 		}
@@ -66,7 +68,7 @@ public class DocumentClassifierTrainer
 		catch( IOException e )
 		{
 			// Failed to save model
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		}
 		finally
 		{
@@ -80,7 +82,7 @@ public class DocumentClassifierTrainer
 				{
 					// Failed to correctly save model.
 					// Written model might be invalid.
-					e.printStackTrace();
+					Log.trace(e.getMessage());
 				}
 			}
 		}

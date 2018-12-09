@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
@@ -47,19 +49,19 @@ public class Main {
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			Log.trace(e.getMessage());			
 		} finally {
 			if (modelIn != null) {
 				try {
 					modelIn.close();
 				} catch (IOException e) {
+					Log.trace(e.getMessage());
 				}
 			}
+			scanner.close();
 		}
 		System.out.println("\n-----\ndone");
-		Utils.writeFile("tokens.txt", tokens);
-		
-		scanner.close();
+		Utils.writeFile("tokens.txt", tokens);			
 	}
 
 }

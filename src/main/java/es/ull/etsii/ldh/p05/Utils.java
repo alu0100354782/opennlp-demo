@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.esotericsoftware.minlog.Log;
+
 /**
  * Contiene funciones para leer y escribir ficheros de texto
  * @author Sergio Reyes de León
@@ -31,13 +33,13 @@ public abstract class Utils {
 			content = new String(chars);
 			reader.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		} finally {
 			try {		
 				if(reader != null)
 					reader.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				Log.trace(e.getMessage());
 			}
 		}
 		return content;
@@ -59,15 +61,15 @@ public abstract class Utils {
 				pw.println(s);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 		} finally {
 			if(pw != null)
 				pw.close();
 			try {	
 				if(file != null)
 					file.close();				
-			} catch (Exception e2) {
-				e2.printStackTrace();
+			} catch (Exception e) {
+				Log.trace(e.getMessage());
 			}
 		}
 	}

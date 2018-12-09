@@ -3,6 +3,8 @@ package org.fogbeam.example.opennlp;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
+import com.esotericsoftware.minlog.Log;
+
 import opennlp.tools.doccat.DoccatModel;
 import opennlp.tools.doccat.DocumentCategorizerME;
 
@@ -31,7 +33,7 @@ public class DocumentClassifierMain
 		}
 		catch( Exception e )
 		{
-			e.printStackTrace();
+			Log.trace(e.getMessage());
 			
 		}
 		finally
