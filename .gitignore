@@ -3,6 +3,10 @@ target/
 *.*~
 build/
 
+.classpath
+
+.settings/*
+
 # Compiled class file
 *.class
 
